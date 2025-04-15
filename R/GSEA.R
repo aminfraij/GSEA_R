@@ -112,7 +112,7 @@ GSEA <- function(input.ds, input.cls, input.chip = "NOCHIP", gene.ann = "", gs.d
  gs.size.threshold.max = 500, reverse.sign = F, preproc.type = 0, random.seed = as.integer(Sys.time()), 
  perm.type = 0, fraction = 1, replace = F, collapse.dataset = FALSE, collapse.mode = "NOCOLLAPSE", 
  save.intermediate.results = F, use.fast.enrichment.routine = T, gsea.type = "GSEA", 
- rank.metric = "S2N") {
+ rank.metric = "S2N", metric.abs = F) {
  
  print(" *** Running Gene Set Enrichment Analysis...")
  
@@ -472,7 +472,7 @@ GSEA <- function(input.ds, input.cls, input.chip = "NOCHIP", gene.ann = "", gs.d
    
    O <- GSEA.GeneRanking(A, class.labels, gene.labels, call.nperm, permutation.type = perm.type, 
     sigma.correction = "GeneCluster", fraction = fraction, replace = replace, 
-    reverse.sign = reverse.sign, rank.metric)
+    reverse.sign = reverse.sign, rank.metric, metric.abs)
    gc()
    
    order.matrix[, n.starts[nk]:n.ends[nk]] <- O$order.matrix
