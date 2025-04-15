@@ -49,7 +49,7 @@
 
 GSEA.GeneRanking <- function(A, class.labels, gene.labels, nperm, permutation.type = 0, 
  sigma.correction = "GeneCluster", fraction = 1, replace = F, reverse.sign = F, 
- rank.metric) {
+ rank.metric, metric.abs) {
  
  A <- A + 1e-08
  B <- A
@@ -268,7 +268,7 @@ GSEA.GeneRanking <- function(A, class.labels, gene.labels, nperm, permutation.ty
   rm(S2)
   gc()
   
-  obs.rnk.matrix <- M1/S1
+  obs.rnk.matrix <- if (metric.abs) abs(M1/S1) else M1/S1
   gc()
  }
  if (rank.metric == "ttest") {
@@ -382,7 +382,7 @@ GSEA.GeneRanking <- function(A, class.labels, gene.labels, nperm, permutation.ty
   rm(S2)
   gc()
   
-  obs.rnk.matrix <- M1/S1
+  obs.rnk.matrix <- if (metric.abs) abs(M1/S1) else M1/S1
   gc()
  }
  
