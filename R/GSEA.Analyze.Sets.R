@@ -35,8 +35,7 @@ GSEA.Analyze.Sets <- function(directory = getwd(), topgs = 20, height = 16, widt
  max.sets <- length(files)
  
  set.table <- matrix(nrow = max.sets, ncol = 5)
- temp1[[1]][1]
- 
+
  for (i in 1:max.sets) {
   temp1 <- strsplit(files[i], split = ".report.")
   #temp2 <- strsplit(temp1[[1]][1], split = "\\.")
