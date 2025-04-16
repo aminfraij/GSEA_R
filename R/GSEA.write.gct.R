@@ -11,13 +11,13 @@ GSEA.write.gct <-
 function(gct, filename) {
  f <- file(filename, "w")
  cat("#1.2", "\n", file = f, append = TRUE, sep = "\t")
- cat(dim(gct)[1], "\t", dim(gct)[2], "\n", file = f, append = TRUE, sep = "\t")
- cat("Name", "\t", file = f, append = TRUE, sep = "\t")
- cat("Description", file = f, append = TRUE, sep = "\t")
+ cat(dim(gct)[1], dim(gct)[2], "\n", file = f, append = TRUE, sep = "\t")
+ cat("Name", "\t", file = f, append = TRUE)
+ cat("Description", file = f, append = TRUE)
  names <- names(gct)
- cat("\t", names[1], file = f, append = TRUE, sep = "\t")
+ cat("\t", names[1], file = f, append = TRUE)
  for (j in 2:length(names)) {
-  cat("\t", names[j], file = f, append = TRUE, sep = "\t")
+  cat("\t", names[j], file = f, append = TRUE)
  }
  cat("\n", file = f, append = TRUE, sep = "\t")
  oldWarn <- options(warn = -1)
