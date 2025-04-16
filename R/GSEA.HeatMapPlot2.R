@@ -14,7 +14,7 @@ function(V, row.names = "NA", col.names = "NA", main = " ",
  n.rows <- length(V[, 1])
  n.cols <- length(V[1, ])
 
- if (color.map == "default") {
+ if (length(color.map) == 1 && color.map == "default") {
   color.map <- rev(rainbow(100, s = 1, v = 0.75, start = 0, end = 0.75))
  }
 
