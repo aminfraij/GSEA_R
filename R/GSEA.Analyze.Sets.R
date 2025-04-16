@@ -35,17 +35,21 @@ GSEA.Analyze.Sets <- function(directory = getwd(), topgs = 20, height = 16, widt
  max.sets <- length(files)
  
  set.table <- matrix(nrow = max.sets, ncol = 5)
+ temp1[[1]][1]
  
  for (i in 1:max.sets) {
   temp1 <- strsplit(files[i], split = ".report.")
-  temp2 <- strsplit(temp1[[1]][1], split = "\\.")
-  s <- length(temp2[[1]])
-  prefix.name <- paste(temp2[[1]][1:(s - 1)], sep = "", collapse = "")
-  set.name <- temp2[[1]][s]
+  #temp2 <- strsplit(temp1[[1]][1], split = "\\.")
+  #s <- length(temp2[[1]])
+  #prefix.name <- paste(temp2[[1]][1:(s - 1)], sep = "", collapse = "")
+  #set.name <- temp2[[1]][s]
+  prefix.name <- doc.string
+  set.name <- gsub(paste0("^", doc.string, "\\."), "", temp1[[1]][1])
   temp3 <- strsplit(temp1[[1]][2], split = "\\.")
   phenotype <- temp3[[1]][1]
   seq.number <- temp3[[1]][2]
-  dataset <- paste(temp2[[1]][1:(s - 1)], sep = "", collapse = ".")
+  #dataset <- paste(temp2[[1]][1:(s - 1)], sep = "", collapse = ".")
+  dataset <- doc.string
   
   set.table[i, 1] <- files[i]
   
